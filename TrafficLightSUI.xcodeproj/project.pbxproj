@@ -11,6 +11,7 @@
 		7808E93C2A31FDCC00208729 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7808E93B2A31FDCC00208729 /* ContentView.swift */; };
 		7808E93E2A31FDCD00208729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7808E93D2A31FDCD00208729 /* Assets.xcassets */; };
 		7808E9412A31FDCD00208729 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7808E9402A31FDCD00208729 /* Preview Assets.xcassets */; };
+		7808E9482A31FF6900208729 /* LightCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7808E9472A31FF6900208729 /* LightCircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		7808E93B2A31FDCC00208729 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7808E93D2A31FDCD00208729 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7808E9402A31FDCD00208729 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7808E9472A31FF6900208729 /* LightCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightCircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				7808E9392A31FDCC00208729 /* TrafficLightSUIApp.swift */,
 				7808E93B2A31FDCC00208729 /* ContentView.swift */,
+				7808E9472A31FF6900208729 /* LightCircleView.swift */,
 				7808E93D2A31FDCD00208729 /* Assets.xcassets */,
 				7808E93F2A31FDCD00208729 /* Preview Content */,
 			);
@@ -139,6 +142,7 @@
 			files = (
 				7808E93C2A31FDCC00208729 /* ContentView.swift in Sources */,
 				7808E93A2A31FDCC00208729 /* TrafficLightSUIApp.swift in Sources */,
+				7808E9482A31FF6900208729 /* LightCircleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
