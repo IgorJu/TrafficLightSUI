@@ -66,6 +66,7 @@ struct ContentView: View {
         isButtonPressed = true
     }
 }
+
     private enum CurrentLight {
         case red, yellow, green
     }
