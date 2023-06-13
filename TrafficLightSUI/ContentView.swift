@@ -8,72 +8,65 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isButtonPressed = false
-    @State private var currentLight = CurrentLight.red
-    @State private var redOpacity = 0.3
-    @State private var yellowOpacity = 0.3
-    @State private var greenOpacity = 0.3
-    
-    @State private var lightIsOn = 1.0
-    @State private var lightIsOff = 0.3
-    
+    @State private var buttonTitle = "START"
+    @State private var currentLight = CurrentLight.off
+        
     var body: some View {
         ZStack {
             Color.indigo
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             VStack {
-                LightCircleView(color: .red)
-                    .opacity(redOpacity)
-                LightCircleView(color: .yellow)
-                    .opacity(yellowOpacity)
-                LightCircleView(color: .green)
-                    .opacity(greenOpacity)
+                LightCircleView(color: .red, opacity: currentLight == .red ? 1 : 0.3)
+                LightCircleView(color: .yellow, opacity: currentLight == .yellow ? 1 : 0.3)
+                LightCircleView(color: .green, opacity: currentLight == .green ? 1 : 0.3)
                 Spacer()
-                
-                Button(action: changeColor) {
-                    Text(isButtonPressed ? "NEXT" : "START")
-                        .font(.largeTitle)
-                        .frame(width: 200, height: 50)
-                        .foregroundColor(.white)
+                changeColorButton(title: buttonTitle) {
+                    if buttonTitle == "START" {
+                        buttonTitle = "NEXT"
+                    }
+                    changeColor()
                 }
+            }
+            .padding()
+        }
+    }
+
+private func changeColor() {
+        switch currentLight {
+        case .off: currentLight = .red
+        case .red: currentLight = .yellow
+        case .yellow: currentLight = .green
+        case .green: currentLight = .red
+        }
+    }
+}
+
+enum CurrentLight {
+    case off, red, yellow, green
+}
+
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+struct changeColorButton: View {
+    let title: String
+    let action: () -> Void
+    var body: some View {
+        Button(action: action) {
+            Text(title)
+                .font(.largeTitle)
+                .frame(width: 200, height: 50)
+                .foregroundColor(.white)
                 .background(.blue)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(.black, lineWidth: 4)
                 )
-            }
-            
-            .padding()
         }
-    }
-
-    private func changeColor() {
-        switch currentLight {
-        case .red:
-            redOpacity = lightIsOn
-            greenOpacity = lightIsOff
-            currentLight = .yellow
-        case .yellow:
-            redOpacity = lightIsOff
-            yellowOpacity = lightIsOn
-            currentLight = .green
-        case .green:
-            yellowOpacity = lightIsOff
-            greenOpacity = lightIsOn
-            currentLight = .red
-        }
-        isButtonPressed = true
-    }
-}
-
-    private enum CurrentLight {
-        case red, yellow, green
-    }
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
